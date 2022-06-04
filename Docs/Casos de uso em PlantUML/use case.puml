@@ -1,0 +1,60 @@
+@startuml
+
+rectangle "Sistema da divisão de estágio."{
+  
+  'Criando os atores.'
+  actor Usuário 
+  actor Aluno 
+  actor Professor
+  actor "Divisao de estágio" as divisão
+ 
+  'Criando os casos de uso para o Usuário.'
+
+  Usuário --> (Cadastrar-se)
+  (Cadastrar-se) .> (Verificar e-mail): <<include>>
+  Usuário --> (Recuperar senha)
+  (Recuperar senha) .> (Enviar e-mail de recuperação): <<include>>
+  Usuário --> (Fazer Login)
+  Usuário --> (Atualizar dados)
+  
+  'Criando os casos de uso para o Aluno.'
+
+  Usuário <|-- Aluno 
+  Aluno --> (Cadastrar estágio)
+  (Cadastrar estágio) .> (Baixar modelo de contrato): <<include>>
+  (Cadastrar estágio) <|-- Obrigatório
+  (Obrigatório) .> (Solicitar professor): <<include>>
+  "Não obrigatório" as Nobrigatório
+  (Cadastrar estágio) <|--  Nobrigatório
+  (Cadastrar estágio) --> divisão
+  divisão --> (Válidar cadastro de estágio)
+  (Válidar cadastro de estágio) --> Aluno
+  (Aluno) --> (Consultar situação)
+  (Consultar situação) --> divisão 
+  Aluno --> (Enviar relatório)
+  (Enviar relatório) --> divisão
+
+
+  'Criando os casos de uso para o Professor.'
+
+  Usuário <|-- Professor
+  Professor --> (Responder solicitação de vinculo)
+  "Rejeitar vinculo" as Rejeitar
+  "Aceitar vinculo" as Aceitar
+  (Responder solicitação de vinculo) <|-- Rejeitar
+  (Responder solicitação de vinculo) <|-- Aceitar
+  "Auxiliar aluno no relatório" as Auxiliar 
+  Professor --> Auxiliar
+  Auxiliar --> Aluno
+  Professor --> (Avaliar aluno)
+  (Avaliar aluno) --> divisão
+ 
+  'Casos de usos adicionais da divisão de estágio.'
+
+  divisão --> (Gerir repositório de arquivo)
+  divisão --> (Cadastrar empresa)
+
+  
+}
+
+@enduml
