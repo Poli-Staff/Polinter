@@ -2,7 +2,7 @@
 
 | ITEM | VALUE |
 | --- | --- |
-| UseCase | Auxiliar aluno no relatório |
+| UseCase | Auxiliar aluno no relatório. |
 | Summary | Permite que o professor auxilie o aluno durante toda a construção do relatório de estágio. |
 | Actor | Professor, Aluno.|
 | Precondition | 1. Estar logado no sistema; <br> 2. Estar orientando um aluno;	<br> 3. O aluno ter enviado um relatório. |
