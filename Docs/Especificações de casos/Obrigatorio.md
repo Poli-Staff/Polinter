@@ -4,7 +4,7 @@
 | --- | --- |
 | UseCase | Obrigatório |
 | Summary | Ao ingressar na disciplina de Estágio Supervisionado Obrigatório o aluno deverá seguir os passos como Não-Obrigatório |
-| Actor | Aluno, Divisão de estágio |
+| Actor | |
 | Precondition | 1. O aluno se matriculou na disciplina de "Estágio Supervisionado Não-Obrigatório". |
 | Postcondition | 1. O estágio será reconhecido como "Estágio Supervisionado Não-Obrigatório". |
 | Base Sequence | 1. O aluno preencheu os campos com "Não-Obrigatório"; <br> 2. Sistema valida os campos preenchidos; <br> 3. O cadastro é realizado. |
